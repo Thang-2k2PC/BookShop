@@ -6,7 +6,12 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 @Entity
 public class NguoiDung {
 
@@ -36,92 +41,10 @@ public class NguoiDung {
 	           joinColumns=@JoinColumn(name="ma_nguoi_dung"), 
 	           inverseJoinColumns=@JoinColumn(name="ma_vai_tro"))
 	private Set<VaiTro> vaiTro;
-	
+
 	@Transient
 	@JsonIgnore
 	private List<DonHang> listDonHang;
-	
-	public List<DonHang> getListDonHang() {
-		return listDonHang;
-	}
-
-	public void setListDonHang(List<DonHang> listDonHang) {
-		this.listDonHang = listDonHang;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getHoTen() {
-		return hoTen;
-	}
-
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
-	}
-
-	public String getSoDienThoai() {
-		return soDienThoai;
-	}
-
-	public void setSoDienThoai(String soDienThoai) {
-		this.soDienThoai = soDienThoai;
-	}
-
-	public String getDiaChi() {
-		return diaChi;
-	}
-
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-
-	public Set<VaiTro> getVaiTro() {
-		return vaiTro;
-	}
-
-	public void setVaiTro(Set<VaiTro> vaiTro) {
-		this.vaiTro = vaiTro;
-	}
-	
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public NguoiDung(String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
-	
-	public NguoiDung() {
-		// TODO Auto-generated constructor stub
-	}
 	
 
 	@Override

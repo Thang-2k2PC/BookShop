@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.bookshop.entities.NguoiDung;
+import com.bookshop.entities.VaiTro;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -64,10 +65,8 @@ public class LienHeApi {
     @PostMapping("/reply")
     public ResponseObject tradLoiLienHeProcess(@RequestBody @Valid LienHeDTO dto, BindingResult result, HttpServletRequest request) {
         NguoiDung currentUser = getSessionUser(request);
-
-//        nguoiDung.setEmail("bookshop@gmail.com");
-//        dto.setEmail(nguoiDung);
-        nguoiDungService.findByEmail(currentUser.getEmail());
+//        dto.setEmail(currentUser);
+//        nguoiDungService.findByEmail(currentUser.getEmail());
         //-------------------
         ResponseObject ro = new ResponseObject();
         System.out.println(dto.toString());
@@ -75,7 +74,6 @@ public class LienHeApi {
 
             Map<String, String> errors = result.getFieldErrors().stream().collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
             ro.setErrorMessages(errors);
-
 
             ro.setStatus("fail");
         } else {
@@ -86,8 +84,7 @@ public class LienHeApi {
             lienHe.setTrangThai("Đã trả lời");
             lienHe.setNgayTraLoi(new Date());
             lienHe.setNoiDungTraLoi(dto.getNoiDungTraLoi());
-//            lienHe.setNguoiTraLoi();
-//            lienHe.setNguoiTraLoi();
+            lienHe.setNguoiTraLoi(currentUser);
 
             lienHeService.save(lienHe);
             ro.setStatus("success");

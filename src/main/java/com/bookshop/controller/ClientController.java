@@ -140,7 +140,6 @@ public class ClientController {
 			
 		//Lay cac danh muc va hang san xuat tim thay
 		Set<String> hangsx = new HashSet<String>();
-		Set<String> pinSet = new HashSet<String>();
 		Iterable<SanPham> dum = sanPhamService.getSanPhamByTenDanhMuc(brand);
 		for(SanPham sp: dum)
 		{
@@ -168,7 +167,6 @@ public class ClientController {
 
 	@GetMapping("/shipping")
 	public String shippingPage(Model model) {
-
 		return "client/shipping";
 	}
 

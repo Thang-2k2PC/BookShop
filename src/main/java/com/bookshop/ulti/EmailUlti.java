@@ -1,6 +1,7 @@
 package com.bookshop.ulti;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,11 @@ public class EmailUlti {
 		
 		try {
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
+			helper.setFrom(new InternetAddress("bookshop@gmail.com"));
 			helper.setTo(diaChiDen);
 			helper.setSubject(tieuDe);
 			helper.setText(noiDung);
-//			helper.setFrom("bookShop@gmail.com");
-			
+
 			mailSender.send(message);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block

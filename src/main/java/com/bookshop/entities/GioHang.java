@@ -1,5 +1,8 @@
 package com.bookshop.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+@Getter
+@Setter
 @Entity
 public class GioHang {
 	
@@ -19,29 +24,4 @@ public class GioHang {
 	@OneToOne
 	@JoinColumn(name = "ma_nguoi_dung")
 	private NguoiDung nguoiDung;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTong_tien() {
-		return tong_tien;
-	}
-
-	public void setTong_tien(String tong_tien) {
-		this.tong_tien = tong_tien;
-	}
-
-	public NguoiDung getNguoiDung() {
-		return nguoiDung;
-	}
-
-	public void setNguoiDung(NguoiDung nguoiDung) {
-		this.nguoiDung = nguoiDung;
-	}
-	
 }

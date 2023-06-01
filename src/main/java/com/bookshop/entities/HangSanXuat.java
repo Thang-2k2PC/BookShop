@@ -10,7 +10,11 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class HangSanXuat {
 	
@@ -24,29 +28,5 @@ public class HangSanXuat {
 	@JsonIgnore
 	@OneToMany(mappedBy = "hangSanXuat")
 	private List<SanPham> listSanPham;
-
-	public String getTenHangSanXuat() {
-		return tenHangSanXuat;
-	}
-
-	public void setTenHangSanXuat(String tenHangSanXuat) {
-		this.tenHangSanXuat = tenHangSanXuat;
-	}
-
-	public List<SanPham> getListSanPham() {
-		return listSanPham;
-	}
-
-	public void setListSanPham(List<SanPham> listSanPham) {
-		this.listSanPham = listSanPham;
-	}
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 }

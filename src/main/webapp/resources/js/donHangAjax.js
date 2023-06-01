@@ -96,7 +96,7 @@ $(document).ready(function() {
      		async:false,
  			type : "POST",
  			contentType : "application/json",
- 			url : "http://localhost:8080/bookshop/api/don-hang/assign?shipp  er="+email+"&donHangId="+donHangId,
+ 			url : "http://localhost:8080/bookshop/api/don-hang/assign?shipper="+email+"&donHangId="+donHangId,
  			enctype: 'multipart/form-data',
  	        
  			success : function(response) {

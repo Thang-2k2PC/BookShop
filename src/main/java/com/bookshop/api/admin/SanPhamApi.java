@@ -119,7 +119,6 @@ public class SanPhamApi {
 		MultipartFile productImage = dto.getHinhAnh();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		Path path = Paths.get(rootDirectory + "/resources/images/" + sp.getId() + ".png");
-//		System.out.println(productImage != null && !productImage.isEmpty());
 		if (productImage != null && !productImage.isEmpty()) {
 
 			try {

@@ -8,8 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class VaiTro {
 
 	@Id
@@ -22,27 +28,7 @@ public class VaiTro {
 	@ManyToMany(mappedBy = "vaiTro")
 	private Set<NguoiDung> nguoiDung;
 
-	public String getTenVaiTro() {
-		return tenVaiTro;
-	}
-
-	public void setTenVaiTro(String tenVaiTro) {
+	public VaiTro(String tenVaiTro){
 		this.tenVaiTro = tenVaiTro;
-	}
-
-	public Set<NguoiDung> getNguoiDung() {
-		return nguoiDung;
-	}
-
-	public void setNguoiDung(Set<NguoiDung> nguoiDung) {
-		this.nguoiDung = nguoiDung;
-	}
-	
-	public VaiTro(String tenVaiTro) {
-		this.tenVaiTro = tenVaiTro;
-	}
-	
-	public VaiTro() {
-		// TODO Auto-generated constructor stub
 	}
 }
